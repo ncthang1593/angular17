@@ -39,7 +39,7 @@ export class ParentComponent implements OnInit {
   ngOnInit(): void {}
 
   setNewMessage() {
-      setTimeout(() => {
+    setTimeout(() => {
       this.message = 'new message';
     }, 1000);
   }

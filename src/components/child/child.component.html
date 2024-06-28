@@ -1,6 +1,6 @@
 <p>child works!</p>
 
-<input type="text" [placeholder]="tpl">
+<input type="text" [placeholder]="tpl" />
 
 <div>
   <ng-container
@@ -8,8 +8,6 @@
     [ngTemplateOutletContext]="{ name: 'thang' }"
   ></ng-container>
 </div>
-
-
 
 <ng-template #tpl let-name="name">
   <p>hello template - {{ name }}</p>
