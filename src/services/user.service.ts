@@ -1,5 +1,4 @@
 import { Injectable, inject } from '@angular/core';
-import { UtilsService } from './utils.service';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,8 +7,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
   user$ = new BehaviorSubject<UserInterface[]>([]);
-  private utilsService = inject(UtilsService);
-
   constructor(private httpClient: HttpClient) {}
 
   addUser(user: UserInterface) {
@@ -20,9 +17,7 @@ export class UserService {
     this.user$.next(this.user$.getValue().filter((_) => _.id !== userId));
   }
 
-  getIsNumber(num: any) {
-    return this.utilsService.checkNumber(num);
-  }
+  getIsNumber(num: any) {}
 
   getPosts() {
     return this.httpClient.get('https://jsonplaceholder.typicode.com/posts');

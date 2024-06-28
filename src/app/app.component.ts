@@ -1,4 +1,4 @@
-import { Component, Host, inject, signal } from '@angular/core';
+import { Component, Host, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ParentComponent } from '../components/parent/parent.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';

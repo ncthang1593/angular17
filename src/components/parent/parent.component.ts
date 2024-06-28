@@ -1,13 +1,4 @@
-import {
-  Component,
-  Host,
-  Inject,
-  Input,
-  OnInit,
-  Self,
-  SkipSelf,
-  inject,
-} from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
