@@ -1,4 +1,10 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  Input,
+  OnInit,
+} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -9,10 +15,12 @@ import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-parent',
+
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   // providers: [
   //   {
   //     provide: DataService,

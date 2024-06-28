@@ -1,30 +1,53 @@
-import { HttpClientModule } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { UserService } from '../../services/user.service';
+import { UserInterface, UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
+import { ControlContainer } from '@angular/forms';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-child',
   standalone: true,
+  template: `
+    <p>child works!</p>
+
+    <input type="text" [placeholder]="tpl" />
+
+    <ng-container *ngIf="user$ | async as users">
+      <ul>
+        <li *ngFor="let user of users">{{ user.name }} - {{ user.age }}</li>
+      </ul>
+    </ng-container>
+
+    <div>
+      <ng-container
+        *ngTemplateOutlet="tpl; context: { name: 'thang' }"
+      ></ng-container>
+    </div>
+
+    <ng-template #tpl let-name="name">
+      <p>hello template - {{ name }}</p>
+    </ng-template>
+  `,
   imports: [CommonModule],
-  templateUrl: './child.component.html',
   styleUrl: './child.component.scss',
-  // providers: [
-  //   {
-  //     provide: DataService,
-  //     // useValue: {
-  //     //   name: 'new name child',
-  //     // },
-  //   },
-  // ],
+  viewProviders: [
+    {
+      provide: ControlContainer,
+      useFactory: () => inject(ControlContainer, { skipSelf: true }),
+    },
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChildComponent {
+  user$!: BehaviorSubject<UserInterface[]>;
+
   private dataService = inject(DataService);
   private userService = inject(UserService);
 
   constructor() {
+    this.user$ = this.userService.users$;
     console.log('child component:', this.dataService.name);
-    this.userService.getPosts().subscribe(console.log)
+    console.table([{ name: 123, age: 10 }]);
   }
 }
