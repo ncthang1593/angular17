@@ -36,5 +36,7 @@ export class AppComponent {
   // private dataService = inject(DataService)
   constructor(@Host() private dataService: DataService) {
     this.dataService.name = 'new data from app';
+
+    console.log('update 7');
   }
 }
