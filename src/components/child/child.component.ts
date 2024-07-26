@@ -47,7 +47,5 @@ export class ChildComponent {
 
   constructor() {
     this.user$ = this.userService.users$;
-    console.log('child component:', this.dataService.name);
-    console.table([{ name: 123, age: 10 }]);
   }
 }

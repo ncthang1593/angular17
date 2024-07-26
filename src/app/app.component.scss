@@ -1,0 +1,40 @@
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.white-background {
+  background-color: white;
+}
+
+.gray-background {
+  background-color: gray;
+}
+
+
+.container {
+  position: relative;
+}
+
+.div1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white; /* Ensure this is opaque */
+  filter: blur(5px); /* Adjust the blur as needed */
+  z-index: 10; /* Ensure it's above div2 */
+}
+
+.div2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: blue; /* Example color */
+  z-index: 5; /* Ensure it's below div1 */
+}

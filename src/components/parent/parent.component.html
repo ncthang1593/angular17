@@ -1,4 +1,7 @@
 <p>parent works!</p>
-<div data-testId="message-container">
-  {{ message }}
+<button (click)="removeSwiper()">Remove Swiper</button>
+<div *ngIf="isShowSwiper">
+  <app-test></app-test>
 </div>
+
+

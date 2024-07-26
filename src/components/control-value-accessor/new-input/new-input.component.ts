@@ -1,9 +1,6 @@
-import { Component, Input, forwardRef, inject } from '@angular/core';
+import { Component, forwardRef } from '@angular/core';
 import {
-  ControlContainer,
   ControlValueAccessor,
-  FormBuilder,
-  FormGroup,
   NG_VALUE_ACCESSOR,
   ReactiveFormsModule,
 } from '@angular/forms';
