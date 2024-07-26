@@ -50,8 +50,6 @@ export class RightSideModalComponent {
     if (changes['isModalOpen']) {
       this.isVisible = this.isModalOpen;
     }
-
-    console.log('commit 1');
   }
 
   @HostListener('document:keydown.escape', ['$event'])
