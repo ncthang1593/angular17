@@ -31,6 +31,7 @@ import { ControlValueAccessorComponent } from '../components/control-value-acces
 })
 export class AppComponent {
   title = 'angular17';
+  name = 'thang';
 
   // private dataService = inject(DataService)
   constructor(@Host() private dataService: DataService) {
