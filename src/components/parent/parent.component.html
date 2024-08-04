@@ -2,3 +2,9 @@
 <div data-testId="message-container">
   {{ message }}
 </div>
+
+<ng-template #headerTpl>
+  <div>this is header</div>
+</ng-template>
+<app-child></app-child>
+<!-- [headerTpl]="headerTpl" -->

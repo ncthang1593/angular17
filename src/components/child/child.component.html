@@ -1,14 +1,18 @@
+<hr />
 <p>child works!</p>
 
-<input type="text" [placeholder]="tpl" />
+<ng-container *ngIf="headerTpl$ | async as template">
+  <ng-container [ngTemplateOutlet]="template"></ng-container>
+</ng-container>
 
 <div>
-  <ng-container
-    [ngTemplateOutlet]="tpl"
-    [ngTemplateOutletContext]="{ name: 'thang' }"
-  ></ng-container>
-</div>
+  <ng-container *ngIf="headerTpl; else headerDefault">
+    <ng-container [ngTemplateOutlet]="headerTpl"></ng-container>
+  </ng-container>
 
-<ng-template #tpl let-name="name">
-  <p>hello template - {{ name }}</p>
-</ng-template>
+  <ng-template #headerDefault>
+    <div>
+      <p>header default</p>
+    </div>
+  </ng-template>
+</div>

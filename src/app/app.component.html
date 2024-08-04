@@ -1,6 +1,17 @@
 <app-parent></app-parent>
-<hr>
-<app-child></app-child>
-<hr>
-  test control-value-accessor
-<app-control-value-accessor></app-control-value-accessor>
+<hr />
+<!-- <app-control-value-accessor></app-control-value-accessor> -->
+
+<div>
+  <div *ngIf="isShow; else data">
+    <p>
+      ...loading
+    </p>
+  </div>
+
+  <ng-template #data>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </ng-template>
+</div>
