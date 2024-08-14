@@ -60,22 +60,6 @@ export class AppComponent {
     this.isModalOpen = false;
   }
 
-  //
-  // printDiv2() {
-  //   const div2 = document.getElementById('div2');
-  //   if (div2) {
-  //     const printWindow = window.open('', '', 'height=1000,width=1000');
-  //     if (printWindow) {
-  //       printWindow.document.write('<html><head><title>Print div2</title>');
-  //       printWindow.document.write('</head><body>');
-  //       printWindow.document.write(div2.innerHTML);
-  //       printWindow.document.write('</body></html>');
-  //       printWindow.document.close();
-  //       printWindow.print();
-  //     }
-  //   }
-  // }
-
   private printWindow: Window | null = null;
 
   printDiv2() {
@@ -83,9 +67,13 @@ export class AppComponent {
     if (div2) {
       this.printWindow = window.open('', '', 'height=600,width=800');
       if (this.printWindow) {
-        this.printWindow.document.write('<html><head><title>Print div2</title>');
+        this.printWindow.document.write(
+          '<html><head><title>Print div2</title>',
+        );
         this.printWindow.document.write('<style>');
-        this.printWindow.document.write('#div2 { width: 500px; height: 500px; background-color: blue; color: white; padding: 20px; }');
+        this.printWindow.document.write(
+          '#div2 { width: 500px; height: 500px; background-color: blue; color: white; padding: 20px; }',
+        );
         this.printWindow.document.write('</style>');
         this.printWindow.document.write('</head><body>');
         this.printWindow.document.write(div2.outerHTML);
