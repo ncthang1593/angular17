@@ -4,8 +4,7 @@ import { ParentComponent } from '../components/parent/parent.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { ChildComponent } from '../components/child/child.component';
 import { DataService } from '../services/data.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ControlValueAccessorComponent } from '../components/control-value-accessor/control-value-accessor/control-value-accessor.component';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RightSideModalComponent } from '../components/right-side-modal/right-side-modal.component';
 
@@ -19,7 +18,6 @@ import { RightSideModalComponent } from '../components/right-side-modal/right-si
     ChildComponent,
     HttpClientModule,
     CommonModule,
-    ControlValueAccessorComponent,
     RightSideModalComponent,
   ],
   templateUrl: './app.component.html',
@@ -44,10 +42,13 @@ export class AppComponent {
   isButton1White: boolean = true;
 
   toggleButtonColor(buttonNumber: number): void {
-    if (buttonNumber === 2) {
-      this.isButton1White = false;
-    } else {
-      this.isButton1White = true;
+    switch (buttonNumber) {
+      case 2:
+        this.isButton1White = false;
+        break;
+      default:
+        this.isButton1White = true;
+        break;
     }
   }
 

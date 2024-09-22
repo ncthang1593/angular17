@@ -1,7 +1,17 @@
-<p>parent works!</p>
-<button (click)="removeSwiper()">Remove Swiper</button>
-<div *ngIf="isShowSwiper">
-  <app-test></app-test>
+<div style="padding-top: 10px; padding-bottom: 100px; padding-left: 20px">
+  <p>parent works!</p>
+  <form [formGroup]="myForm">
+    <input
+      nz-input
+      placeholder="Money"
+      type="text"
+      style="width: 50%"
+      formControlName="money"
+    />
+  </form>
+  <br />
+
+  <p *ngIf="moneyControl.value">
+    {{ readMoney(moneyControl.value) }}
+  </p>
 </div>
-
-
